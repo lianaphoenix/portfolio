@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liana Rakhimzhanova</title>
+<meta name="description" content="Liana Rakhimzhanova — public policy researcher working on cybersecurity governance, AI policy, and digital inequality.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE7DA;
+    --paper-2: #E4DCC9;
+    --ink: #1E1B16;
+    --muted: #6E6455;
+    --line: #CFC5AE;
+    --accent: #35586B;   /* steppe-sky blue-teal */
+    --accent-2: #A8763E; /* bronze / altyn */
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:2rem;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px;}
+  a:hover{color:var(--accent-2);}
+
+  ::selection{background:var(--accent-2); color:var(--paper);}
+
+  .shell{
+    display:grid;
+    grid-template-columns: 240px minmax(0,760px);
+    gap: 4rem;
+    max-width:1180px;
+    margin:0 auto;
+    padding: 5rem 2rem 6rem;
+  }
+
+  /* ---- Side index ---- */
+  nav.index{
+    position:sticky;
+    top:4rem;
+    align-self:start;
+    height:max-content;
+  }
+  nav.index .name{
+    font-family:var(--serif);
+    font-size:1.35rem;
+    font-weight:600;
+    line-height:1.25;
+    margin:0 0 .35rem;
+  }
+  nav.index .role{
+    font-size:.82rem;
+    color:var(--muted);
+    margin:0 0 1.75rem;
+    max-width:20ch;
+  }
+  nav.index ol{
+    list-style:none;
+    margin:0 0 1.75rem;
+    padding:0;
+    border-left:1px solid var(--line);
+  }
+  nav.index li{margin:0;}
+  nav.index a.section-link{
+    display:flex;
+    gap:.65rem;
+    padding:.32rem 0 .32rem .85rem;
+    margin-left:-1px;
+    border-left:1px solid transparent;
+    color:var(--muted);
+    font-size:.85rem;
+    text-decoration:none;
+  }
+  nav.index a.section-link:hover{color:var(--ink);}
+  nav.index a.section-link .num{
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--accent-2);
+    padding-top:.1rem;
+  }
+  nav.index .contacts{
+    display:flex;
+    flex-direction:column;
+    gap:.4rem;
+    font-size:.82rem;
+  }
+  nav.index .contacts a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);}
+  nav.index .contacts a:hover{color:var(--accent); border-color:var(--accent);}
+
+  /* ---- Main content ---- */
+  main{min-width:0;}
+
+  header.hero{margin-bottom:4.5rem;}
+  header.hero .eyebrow{
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--accent-2);
+    margin:0 0 1rem;
+  }
+  header.hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.1rem, 4.5vw, 3rem);
+    line-height:1.12;
+    margin:0 0 1.1rem;
+    max-width:16ch;
+  }
+  header.hero p.lede{
+    font-size:1.08rem;
+    color:#3B372F;
+    max-width:56ch;
+    margin:0 0 1.6rem;
+  }
+  .interest-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem .5rem;
+    padding:0;
+    margin:0;
+    list-style:none;
+  }
+  .interest-row li{
+    font-size:.78rem;
+    padding:.35rem .7rem;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--muted);
+  }
+
+  section{margin-bottom:4rem; scroll-margin-top:2rem;}
+  section > h2{
+    display:flex;
+    align-items:baseline;
+    gap:.75rem;
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.5rem;
+    margin:0 0 1.6rem;
+    padding-bottom:.75rem;
+    border-bottom:1px solid var(--line);
+  }
+  section > h2 .num{
+    font-family:var(--mono);
+    font-size:.85rem;
+    font-weight:400;
+    color:var(--accent-2);
+  }
+
+  .entry{
+    display:grid;
+    grid-template-columns: 150px minmax(0,1fr);
+    gap:1.5rem;
+    padding:1.1rem 0;
+    border-top:1px solid var(--line);
+  }
+  .entry:first-of-type{border-top:none; padding-top:0;}
+  .entry .when{
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--muted);
+    padding-top:.2rem;
+  }
+  .entry .what h3{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:1rem;
+    margin:0 0 .15rem;
+  }
+  .entry .what .org{
+    font-size:.9rem;
+    color:var(--accent);
+    margin:0 0 .6rem;
+  }
+  .entry .what ul{
+    margin:.4rem 0 0;
+    padding-left:1.1rem;
+  }
+  .entry .what li{margin:.28rem 0; font-size:.93rem; color:#3B372F;}
+  .entry .what p{font-size:.93rem; color:#3B372F; margin:.4rem 0 0;}
+
+  /* Publications */
+  ol.pubs{
+    list-style:none;
+    counter-reset: pub;
+    margin:0; padding:0;
+  }
+  ol.pubs li{
+    counter-increment: pub;
+    display:grid;
+    grid-template-columns: 2rem minmax(0,1fr);
+    gap:1rem;
+    padding:1rem 0;
+    border-top:1px solid var(--line);
+    font-size:.93rem;
+  }
+  ol.pubs li:first-child{border-top:none;}
+  ol.pubs li::before{
+    content: counter(pub, decimal-leading-zero);
+    font-family:var(--mono);
+    color:var(--accent-2);
+    font-size:.8rem;
+    padding-top:.1rem;
+  }
+  ol.pubs .badge{
+    display:inline-block;
+    font-size:.7rem;
+    font-family:var(--mono);
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:2px;
+    padding:.05rem .4rem;
+    margin-top:.4rem;
+  }
+
+  /* Two-column light lists: awards, certs, skills */
+  .plain-list{list-style:none; margin:0; padding:0;}
+  .plain-list li{
+    padding:.6rem 0;
+    border-top:1px solid var(--line);
+    font-size:.93rem;
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+  }
+  .plain-list li:first-child{border-top:none;}
+  .plain-list li .year{
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+
+  .skills-line{
+    font-size:.95rem;
+    color:#3B372F;
+    line-height:1.9;
+  }
+  .skills-line .tag{
+    font-family:var(--mono);
+    font-size:.85rem;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:.2rem .55rem;
+    border-radius:2px;
+    margin:0 .3rem .3rem 0;
+    display:inline-block;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding-top:2rem;
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  /* Mobile nav toggle */
+  .mobile-bar{display:none;}
+
+  @media (max-width: 900px){
+    .shell{grid-template-columns: 1fr; padding:0 1.25rem 4rem;}
+    nav.index{
+      position:static;
+      padding-top:1.75rem;
+      margin-bottom:1rem;
+    }
+    nav.index ol{display:none;}
+    .entry{grid-template-columns: 1fr;}
+    .entry .when{padding-top:0; margin-bottom:.2rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="index" aria-label="Section index">
+    <p class="name">Liana Rakhimzhanova</p>
+    <p class="role">Public policy researcher &amp; MPP candidate, Astana</p>
+
+    <ol>
+      <li><a class="section-link" href="#about"><span class="num">00</span><span>About</span></a></li>
+      <li><a class="section-link" href="#education"><span class="num">01</span><span>Education</span></a></li>
+      <li><a class="section-link" href="#research"><span class="num">02</span><span>Research</span></a></li>
+      <li><a class="section-link" href="#publications"><span class="num">03</span><span>Publications</span></a></li>
+      <li><a class="section-link" href="#work"><span class="num">04</span><span>Work</span></a></li>
+      <li><a class="section-link" href="#projects"><span class="num">05</span><span>Projects</span></a></li>
+      <li><a class="section-link" href="#awards"><span class="num">06</span><span>Awards</span></a></li>
+      <li><a class="section-link" href="#skills"><span class="num">07</span><span>Skills</span></a></li>
+    </ol>
+
+    <div class="contacts">
+      <a href="mailto:rakhimzhanovaliana@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/liana-rakhimzhanova/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/lianaphoenix" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="about">
+      <p class="eyebrow">Astana, Kazakhstan</p>
+      <h1>Researching how institutions govern digital systems — and who gets left out.</h1>
+      <p class="lede">
+        I'm a second-year Master in Public Policy student at Nazarbayev University, working
+        at the intersection of cybersecurity governance, AI policy, and comparative institutional
+        analysis. My current research looks at Kazakhstan's public-sector cybersecurity governance
+        and the digital divide, drawing comparisons with China, Japan, and South Korea. I hold a
+        BBA in IT Management from Astana IT University and am working toward a transition into
+        machine learning research.
+      </p>
+      <ul class="interest-row">
+        <li>HCI</li>
+        <li>Digital policy</li>
+        <li>Evolutionary game theory</li>
+        <li>Project management</li>
+      </ul>
+    </header>
+
+    <section id="education">
+      <h2><span class="num">01</span>Education</h2>
+
+      <div class="entry">
+        <div class="when">Aug 2025 –<br>Jun 2027</div>
+        <div class="what">
+          <h3>Nazarbayev University</h3>
+          <p class="org">Master in Public Policy · CGPA 3.83/4.0</p>
+          <ul>
+            <li>Fall 2026 coursework: Game Theory, Water Resources Policy, Politics, Statistical Learning (audit), Deep Learning (audit)</li>
+            <li>Project Manager, UN Sustainable Development Solutions Network; Vice-President for Academic Affairs, Graduate School of Public Policy Student Council</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Sept 2026 –<br>Dec 2026</div>
+        <div class="what">
+          <h3>Sungkyunkwan University</h3>
+          <p class="org">Credit-bearing coursework · Remote, South Korea</p>
+          <ul>
+            <li>Mathematics for AI, Financial Management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Jul 2026</div>
+        <div class="what">
+          <h3>Lee Kuan Yew School of Public Policy, NUS</h3>
+          <p class="org">Executive education programme · On-site, Singapore</p>
+          <ul>
+            <li>Two-week module (13–24 July 2026) on Singapore's governance model — urban development, social policy, digital policy, water policy, and environmental policy, taught by former and current civil servants</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Sept 2022 –<br>Jun 2025</div>
+        <div class="what">
+          <h3>Astana IT University</h3>
+          <p class="org">BBA in IT Management · CGPA 3.8/4.0 · Diploma with Honours</p>
+          <ul>
+            <li>1st place by major cohort, 2nd place, class of 2025</li>
+            <li>16 extracurricular positions, including Project Manager at AITU Gaming Club, Head of Cultural &amp; Mass Activities at Student Government, IEEE AITU Student Branch, ICPC World Finals 2024 volunteer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2><span class="num">02</span>Research experience</h2>
+
+      <div class="entry">
+        <div class="when">Sep 2026 –<br>Dec 2026</div>
+        <div class="what">
+          <h3>Selection and Recovery of Safe Behaviour in AI Agent Populations</h3>
+          <p class="org">With Prof. Fazli, Nazarbayev University — Deep Learning coursework project</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Sep 2026 –<br>Dec 2026</div>
+        <div class="what">
+          <h3>Research Assistant</h3>
+          <p class="org">Under Prof. Omer F. Baris — "Fair Fiscal Policy: Axiomatic Foundations, Implementation, and Measurement of Ex Ante Fairness in Taxation"</p>
+          <ul>
+            <li>Collected, cleaned, and harmonized cross-country data on taxation, inequality, governance, and public finance from OECD, World Bank, WID, and ICTD/UNU-WIDER</li>
+            <li>Performed data validation and reproducibility checks in Stata, R, and Python, documenting variable definitions and cross-country comparability</li>
+            <li>Prepared regression datasets, descriptive statistics, and research summaries; maintained reproducible pipelines and codebooks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Oct 2025 –<br>Present</div>
+        <div class="what">
+          <h3>Research Assistant</h3>
+          <p class="org">Under Prof. Asad Bokhari — "From Reactive to Proactive: Institutional Fragmentation, Interagency Coordination, and Cybersecurity Governance in Kazakhstan (Comparative Insights from China and Japan)"</p>
+          <ul>
+            <li>Structured qualitative analysis of 40 policy, legal, and institutional documents on Kazakhstan's public-sector cybersecurity governance, 2017–2026</li>
+            <li>Built a Python-based automated text-search workflow, contributing to a coded database of 15,206 evidence rows</li>
+            <li>Applied a coding framework across 6 governance constructs, including institutional fragmentation, coordination mechanisms, and governance failure modes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Apr 2024</div>
+        <div class="what">
+          <h3>2024 IEEE 1st International Conference: Digital Generation</h3>
+          <p class="org">Co-organizer, local organizing committee</p>
+          <ul>
+            <li>Led operations and provided organizational support, helping deliver an international research conference with 200+ papers from 45 universities across 7 countries</li>
+          </ul>
+          <p><a href="https://ieeexplore.ieee.org/document/10585419" target="_blank" rel="noopener">View DOI →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2><span class="num">03</span>Publications &amp; manuscripts</h2>
+      <ol class="pubs">
+        <li>
+          <div>
+            <strong>L. Rakhimzhanova.</strong> "Forecasting the Digital Divide: A Comparative Machine Learning Study of ICT Access Trajectories." Preprint, October 2026.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>L. Rakhimzhanova</strong>, D. Zhakupova, N. Ibadildin. "Perception of Emerging Technology-Based Medical Services Among Astana IT University Students." Preprint, Research Square, September 2026.
+            <br><a href="https://doi.org/10.21203/rs.3.rs-11143315/v1" target="_blank" rel="noopener">DOI →</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>L. Rakhimzhanova</strong>, Z. Nurzhanova. "Cybersecurity as Foreign Policy Rhetoric: A Discourse Analysis of US National Security Speeches and Strategies (2006–2022)." CEGREG, 1st CEGREG Conference on Foreign Policy and Diplomacy, May 2025.
+            <br><a href="https://mnu.kz/wp-content/uploads/2024/12/cegreg_yearbook_2025.pdf#page=121" target="_blank" rel="noopener">DOI →</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            A. Yermekova, D. Sapargaliyeva, <strong>L. Rakhimzhanova</strong>. "Advantages and Challenges of Introducing AI in Judicial Processes: Kazakhstani Context." IEEE 2nd International Conference: Digital Generation, April 2025.
+            <span class="badge">2nd place</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            M. Tulemissova, <strong>L. Rakhimzhanova</strong>, A. Yermekova, D. Sapargaliyeva. "AI Bias and Women: Addressing Algorithmic Discrimination in Hiring and Salary Decisions." Preprint, SSRN, April 2025.
+            <br><a href="https://dx.doi.org/10.2139/ssrn.7483742" target="_blank" rel="noopener">DOI →</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>L. Rakhimzhanova</strong>, D. Zhakupova, M. Turgumbay. "Analysis of the Use of Communication Tools Between Stakeholders in IT Projects." Maqsut Narikbayev University Research Conference, May 2024.
+            <span class="badge">Best Bachelor Student Poster</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="work">
+      <h2><span class="num">04</span>Work experience</h2>
+
+      <div class="entry">
+        <div class="when">May 2026 –<br>Present</div>
+        <div class="what">
+          <h3>Core Team</h3>
+          <p class="org">Global Project Management Days, IPMA &amp; IPMA YC</p>
+          <p>Managing sales process and promotion for the conference on project management.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">May 2026 –<br>Aug 2026</div>
+        <div class="what">
+          <h3>Host Team</h3>
+          <p class="org">International Olympiad in Artificial Intelligence 2026: Kazakhstan Edition</p>
+          <p>Host Excursions and Host Volunteers Coordinator.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Feb 2025 –<br>Aug 2026</div>
+        <div class="what">
+          <h3>Project Manager</h3>
+          <p class="org">RPA "Competitive Programming Federation"</p>
+          <ul>
+            <li>Worked under Bagdat Mussin, former Minister of Digital Development, Innovations and Aerospace Industry, supporting a C-level executive directly</li>
+            <li>Co-organized four republican and national olympiads in informatics, including AI Olymp — the first AI olympiad in Kazakhstan</li>
+            <li>Manager, Kazakhstan National Team for the European Girls' Olympiad in Informatics 2026; Core Team, IOAI 2026</li>
+            <li>Community manager for an olympiad with Yandex Search, reaching 2,000 participants; oversaw events for 100+ people at an 87% satisfaction rate</li>
+            <li>Operations at the 2025 ACM-ICPC Kazakhstan Qualification, Regional Contest, and Northern Eurasia Finals</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Dec 2025 –<br>Apr 2026</div>
+        <div class="what">
+          <h3>Case Study &amp; Sponsorships Manager</h3>
+          <p class="org">IPMA Young Crew — Core Team "GeCCo"</p>
+          <ul>
+            <li>Designed a case study for an international project management competition for participants aged 18–35</li>
+            <li>Helped drive promotion to 500+ participants across 62 countries</li>
+            <li>Established a partnership with Capital Health Consulting (USA)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Sep 2025 –<br>Dec 2025</div>
+        <div class="what">
+          <h3>Operations</h3>
+          <p class="org">ACM-ICPC Kazakhstan</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Jul 2024 –<br>Aug 2024</div>
+        <div class="what">
+          <h3>ESG and Sustainability Intern</h3>
+          <p class="org">JSC "NAC Kazatomprom," Astana — Department of Strategic and Sustainable Development</p>
+          <ul>
+            <li>Analyzed 2020–2023 sustainability reports (~1,000 pages) for S&amp;P and CDP international ratings</li>
+            <li>Calculated GHG emissions and water withdrawal from subsidiary data; contributed to the annual report and website</li>
+            <li>Part of a 4-person team that helped lift the company's S&amp;P Global score to 50/100, against a mining-industry average of ~26/100</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Mar 2024 –<br>May 2024</div>
+        <div class="what">
+          <h3>IT Project Manager Intern</h3>
+          <p class="org">CF "El Umiti," Astana</p>
+          <ul>
+            <li>Wrote technical specifications supporting the website and national olympiads</li>
+            <li>Redesigned project websites; built PowerBI dashboards for 10 Fund projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Nov 2022 –<br>Aug 2023</div>
+        <div class="what">
+          <h3>Marketing Project Manager</h3>
+          <p class="org">Astana IT University</p>
+          <ul>
+            <li>~1,200 hours across the admissions campaign; guided 150+ prospective students on-site</li>
+            <li>Technical support for the AITU iCode Olympiad; presentations and excursions in English, Kazakh, and Russian</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2><span class="num">05</span>Projects</h2>
+
+      <div class="entry">
+        <div class="when">Sep 2025 –<br>Apr 2027</div>
+        <div class="what">
+          <h3>Unequal by Design</h3>
+          <p class="org">Master's thesis / policy analysis exercise — Factors driving the digital divide and its effects on citizen well-being</p>
+          <p>Investigates how Kazakhstan's digital transformation and public-service digitization affect social inequality, focusing on digital literacy and socioeconomic and regional barriers, using a nationwide survey and 17 top-level expert interviews, with South Korea as a comparative case.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Sep 2024 –<br>Jun 2025</div>
+        <div class="what">
+          <h3>Intelligent Medical Platform</h3>
+          <p class="org">Bachelor's thesis / diploma project — Astana IT University</p>
+          <ul>
+            <li>EHR, automated appointments, and AI-driven diagnostics to improve access and administrative efficiency</li>
+            <li>Certificate of author's rights, Qazpatent №57761, May 2025</li>
+            <li>Slated for implementation with medical supplier "Mediker-Astana"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Feb 2023 –<br>May 2024</div>
+        <div class="what">
+          <h3>Trello for Student Government</h3>
+          <p class="org">Process re-engineering across 40+ student clubs</p>
+          <p>Introduced Trello to make club reporting more efficient, transparent, and visual. Implemented in 2023; still in use.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2><span class="num">06</span>Awards &amp; honors</h2>
+      <ul class="plain-list">
+        <li><span>Republican Finalist, Business Aru — entrepreneurship competition among women, 10,000+ entrants across Kazakhstan</span><span class="year">Jun 2026</span></li>
+        <li><span>3rd place, Center for Strategic Initiatives Case Championship</span><span class="year">Apr 2026</span></li>
+        <li><span>Full-tuition merit scholarship, Nazarbayev University</span><span class="year">Apr 2026</span></li>
+        <li><span>2nd place, International IEEE Student Conference "Digital Generation" — Technology Management Section</span><span class="year">Apr 2025</span></li>
+        <li><span>Best Bachelor Student Poster, MNU Student Research Conference</span><span class="year">May 2024</span></li>
+        <li><span>Certificates of appreciation — Student Government; Vice-Rector, for organizing the IEEE DG Conference; AITU Admissions Office</span><span class="year">2023–24</span></li>
+        <li><span>Top-10 students by social GPA</span><span class="year">Apr 2023</span></li>
+        <li><span>Full-tuition merit scholarship, Astana IT University</span><span class="year">Aug 2022</span></li>
+        <li><span>"Altyn Belgi" Holder, Ministry of Education</span><span class="year">Jun 2022</span></li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2><span class="num">07</span>Certifications, hackathons &amp; skills</h2>
+
+      <ul class="plain-list">
+        <li><span>AlemPlus Hackathon — AgroAI, Astana Hub</span><span class="year">2026</span></li>
+        <li><span>HackNU — churn prediction for Higgsfield.ai, NU ACM</span><span class="year">2026</span></li>
+        <li><span>nFactorial × Higgsfield — Growth Manager, nFactorial School</span><span class="year">2026</span></li>
+        <li><span><a href="https://elearning-adbi.org/certificate-verifier/?code=137284-175-787-2148" target="_blank" rel="noopener">Circular Economy: Increasing Resource Efficiency and Designing Out Waste</a> — ADB Institute</span><span class="year">2025</span></li>
+        <li><span><a href="https://www.citiprogram.org/verify/?w9ba55eed-cd36-4055-9557-14d1021fdad0-73378007" target="_blank" rel="noopener">Social and Behavioral Research (Basic/Refresher)</a> — CITI Program</span><span class="year">2025</span></li>
+        <li><span><a href="https://www.credly.com/badges/ec50c1a8-e97a-43ae-a293-bd1e7efef0bb/print" target="_blank" rel="noopener">Artificial Intelligence Fundamentals</a> — IBM</span><span class="year">2025</span></li>
+        <li><span>Decentrathon — Broadcast Translation, Blockchain &amp; AI Technology Center</span><span class="year">2025</span></li>
+        <li><span><a href="https://www.credly.com/badges/ed0e5fb1-d074-444e-96f6-3f9699303312/public_url" target="_blank" rel="noopener">Cyber Threat Management</a> — Cisco Networking Academy</span><span class="year">2025</span></li>
+        <li><span><a href="https://www.coursera.org/account/accomplishments/verify/ZRSWP9KJG2SC" target="_blank" rel="noopener">Supervised Machine Learning</a> — DeepLearning.AI &amp; Stanford</span><span class="year">2024</span></li>
+        <li><span><a href="https://www.coursera.org/account/accomplishments/verify/YZ39BULKC7MH" target="_blank" rel="noopener">Agile Project Management</a> — Google</span><span class="year">2023</span></li>
+        <li><span>Programming Essentials in Python — Cisco Networking Academy</span><span class="year">2023</span></li>
+      </ul>
+
+      <p class="skills-line" style="margin-top:1.75rem;">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">Stata</span><span class="tag">Power BI</span><span class="tag">pgAdmin</span><span class="tag">Figma</span><span class="tag">LaTeX</span><span class="tag">Google Colab</span>
+      </p>
+    </section>
+
+    <footer>
+      <p>Astana, Kazakhstan · <a href="mailto:rakhimzhanovaliana@gmail.com">rakhimzhanovaliana@gmail.com</a> · <a href="https://linkedin.com/in/liana-rakhimzhanova/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/lianaphoenix" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
